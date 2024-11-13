@@ -35,7 +35,7 @@ def test_get_quiz(mock_get_quiz, client):
     # INCOMPLETE: Set up the mock to simulate a QuizModel object
     mock_quiz = MagicMock()
     mock_quiz.title = "Sample Quiz"
-    mock_quiz.questions = [
+    mock_quiz.questions=[
         {"text": "What is 2 + 2?", "answer": "4"},
         {"text": "What is the capital of France?", "answer": "Paris"}
     ]
