@@ -9,7 +9,6 @@ class QuizService:
         questions = quiz_data.get("questions")
 
         # INCOMPLETE: Create a new QuizModel instance
-        # TODO: Initialize a QuizModel with `title` and `questions` (Hint: quiz = QuizModel(title, questions))
         quiz = QuizModel(title=title, questions=questions)
 
         # INCOMPLETE: Save the quiz and return its ID
@@ -33,7 +32,6 @@ class QuizService:
             return None, "Quiz not found"
 
         # INCOMPLETE: Calculate the score based on correct answers
-        # TODO: Compare `user_answers` with `quiz.questions`, count correct answers, and return the score
         correct_answers = [q["answer"] for q in quiz.questions]
         score = sum(1 for correct, user in zip(correct_answers, user_answers) if correct == user)
         return score, "Quiz evaluated successfully"
