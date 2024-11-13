@@ -1,7 +1,9 @@
 from flask import Blueprint, request, jsonify
 from src.services.quiz_service import QuizService
 
+
 quiz_bp = Blueprint('quiz', __name__, url_prefix='/api/quizzes')
+
 
 @quiz_bp.route('', methods=['POST'])
 def create_quiz():
@@ -17,6 +19,7 @@ def create_quiz():
     # Return a JSON response containing `message` and `quiz_id`, with status code 201
     return jsonify({"message": "Quiz created", "quiz_id": quiz_id}), 201
 
+
 @quiz_bp.route('/<int:quiz_id>', methods=['GET'])
 def get_quiz(quiz_id):
     # Initialize an instance of QuizService
@@ -29,11 +32,12 @@ def get_quiz(quiz_id):
     if quiz:
         quiz_dict = {
             "title": quiz.title,
-            "questions": quiz.questions  
+            "questions": quiz.questions
         }
         return jsonify(quiz_dict), 200
     else:
         return jsonify({"error": "Quiz not found"}), 404
+
 
 @quiz_bp.route('/<int:quiz_id>/submit', methods=['POST'])
 def submit_quiz(quiz_id):

@@ -1,8 +1,10 @@
+# src/services/quiz_service.py
 from src.models.quiz_model import QuizModel
 
 
 class QuizService:
     def create_quiz(self, quiz_data):
+        # Extract `title` and `questions` from `quiz_data`
         title = quiz_data.get("title")
         questions = quiz_data.get("questions")
 
@@ -28,6 +30,7 @@ class QuizService:
         # Calculate the score based on correct answers
         correct_answers = [q["answer"] for q in quiz.questions]
         score = sum(
-            1 for correct, user in zip(correct_answers, user_answers) if correct == user
+            1 for correct, user in zip(correct_answers, user_answers)
+            if correct == user
         )
         return score, "Quiz evaluated successfully"
