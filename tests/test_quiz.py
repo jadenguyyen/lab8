@@ -2,6 +2,7 @@
 from unittest.mock import patch, MagicMock
 from src.services.quiz_service import QuizService
 
+
 # Test for creating a new quiz
 @patch.object(QuizService, 'create_quiz')
 def test_create_quiz(mock_create_quiz, client):
@@ -28,6 +29,7 @@ def test_create_quiz(mock_create_quiz, client):
     assert response.json["quiz_id"] == 1
     assert response.json["message"] == "Quiz created"
     mock_create_quiz.assert_called_once()
+
 
 # Test for retrieving a quiz by ID
 @patch.object(QuizService, 'get_quiz')
@@ -59,6 +61,7 @@ def test_get_quiz(mock_get_quiz, client):
         {"text": "What is the capital of France?", "answer": "Paris"}
     ]
     mock_get_quiz.assert_called_once_with(1)
+
 
 # Test for submitting answers and evaluating a quiz
 @patch.object(QuizService, 'evaluate_quiz')
