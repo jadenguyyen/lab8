@@ -13,10 +13,8 @@ def create_quiz():
     # Get JSON data from the request
     data = request.json
 
-    # Use the service to create a quiz with the `data` and store the returned quiz ID in `quiz_id`
     quiz_id = service.create_quiz(data)
 
-    # Return a JSON response containing `message` and `quiz_id`, with status code 201
     return jsonify(
         {"message": "Quiz created", "quiz_id": quiz_id}
     ), 201
@@ -49,7 +47,6 @@ def submit_quiz(quiz_id):
     # Get the answers from the request using `request.json.get('answers')`
     user_answers = request.json.get('answers')
 
-    # Call `evaluate_quiz` with `quiz_id` and `user_answers` and store the result in `score` and `message`
     score, message = service.evaluate_quiz(quiz_id, user_answers)
 
     # Check if evaluation was successful and return the response
