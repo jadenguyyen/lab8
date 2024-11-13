@@ -36,17 +36,12 @@ def test_get_quiz(mock_get_quiz, client):
     mock_quiz = MagicMock()
     mock_quiz.title = "Sample Quiz"
     mock_quiz.questions = [
-        {"text": "What is 2 + 2?", "answer": "4"},
-        {"text": "What is the capital of France?", "answer": "Paris"}
-    ]
+    {"text": "What is 2 + 2?", "answer": "4"},
+    {"text": "What is the capital of France?", "answer": "Paris"}
+]
 
-
-    # INCOMPLETE: Assign the mock quiz to `mock_get_quiz.return_value`
-    # TODO: Set `mock_get_quiz.return_value` to `mock_quiz`
     mock_get_quiz.return_value = mock_quiz
 
-    # INCOMPLETE: Make a GET request to retrieve the quiz
-    # TODO: Use `client.get` to send a GET request to `/api/quizzes/1`
     response = client.get('/api/quizzes/1')
 
     # INCOMPLETE: Write assertions to check the response
