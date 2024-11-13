@@ -36,7 +36,6 @@ def test_get_quiz(mock_get_quiz, client):
 
     mock_get_quiz.return_value = mock_quiz
     response = client.get('/api/quizzes/1')
-
     assert response.status_code == 200
     response_json = response.get_json()
     assert response_json['title'] == "Sample Quiz"
