@@ -1,4 +1,4 @@
 requests
 flask
 pytest
-SQLAlchemy
+flask_sqlalchemy
