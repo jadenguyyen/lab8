@@ -27,5 +27,7 @@ class QuizService:
 
         # Calculate the score based on correct answers
         correct_answers = [q["answer"] for q in quiz.questions]
-        score = sum(1 for correct, user in zip(correct_answers, user_answers) if correct == user)
+        score = sum(
+            1 for correct, user in zip(correct_answers, user_answers) if correct == user
+        )
         return score, "Quiz evaluated successfully"
