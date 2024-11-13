@@ -5,7 +5,7 @@ from src.services.quiz_service import QuizService
 # Test for creating a new quiz
 @patch.object(QuizService, 'create_quiz')
 def test_create_quiz(mock_create_quiz, client):
-    mock_create_quiz.return_value = 1  
+    mock_create_quiz.return_value = 1
 
     response = client.post(
         '/api/quizzes',
